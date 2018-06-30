@@ -27,7 +27,7 @@
           };
         }
       },
-      isRefreshChart : {      //每次数据改变是否重新初始化图表
+      isRefreshChart : {      // 每次数据改变是否重新初始化图表
         type : Boolean,
         default : false
       }
@@ -65,7 +65,7 @@
             },
             axisLabel: {
               show: true,
-//              interval:0,//横轴信息全部显示
+//              interval:0,// 横轴信息全部显示
               textStyle: {
                 color: '#333333',
                 position: 'bottom',

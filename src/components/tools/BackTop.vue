@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../../assets/scss/theme.scss';
+@import '../../assets/scss/theme';
 .back-top {
   position: fixed;
   right: 40px;

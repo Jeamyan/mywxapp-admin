@@ -3,6 +3,7 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
 import middlewares from './middlewares';
+import global from './global';
 
 Vue.use(Vuex);
 

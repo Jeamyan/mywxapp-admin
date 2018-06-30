@@ -1,5 +1,5 @@
 /**
- * Created on 2017/5/26.
+ * Created on 2018/6/9.
  */
 
 'use strict';
@@ -10,11 +10,11 @@ const animationFrameSetTimeout = (callback) => {
 };
 
 //定时器
-window.requestAnimationFrame = (() => {
+window.requestAnimFrame = (() => {
   return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || animationFrameSetTimeout;
 })();
 
 //取消定时器
-window.cancelAnimationFrame = (() => {
+window.cancelAnimFrame = (() => {
   return window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || clearTimeout;
 })();

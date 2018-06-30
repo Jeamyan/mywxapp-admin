@@ -23,7 +23,7 @@
   };
 </script>
 <style lang="scss">
-  @import "../../../assets/scss/theme";
+  @import "../../assets/scss/theme";
   .echarts-no-data {
     /*height: 200px;*/
     text-align: center;

@@ -188,7 +188,7 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-  @import '../../../assets/scss/theme';
+  @import '../../assets/scss/theme';
 
   .date-range-box {
     display: inline-block;

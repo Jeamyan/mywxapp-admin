@@ -91,7 +91,7 @@ module.exports = {
     // "indent": ["error", 4],  //缩进方式
     // "linebreak-style": ["error", "unix"],  //行尾结束编码方式
     "quotes": ["error", "single"],  //强制使用单引号
-    "semi": ["error", "always"],    //强制句末使用分号
+    "semi": ["off", "always"],    //强制句末使用分号
     "camelcase": ["error", {"properties": "always"}], //强制使用camelCase方式命名参数
     // "new-cap": "error",  //构造函数名称首字母大写
     "comma-dangle": "warn",  //禁用拖尾逗号
