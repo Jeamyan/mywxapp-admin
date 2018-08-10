@@ -5,6 +5,12 @@
  * @param time
  * @returns {*}
  */
+
+/**
+ * 获取距离当前时间的时间间隔
+ * @param time
+ * @returns {*}
+ */
 export const timeToNow = (time) => {
   const t = parseFloat(new Date - new Date(time)) / 1000;
   let str;
@@ -26,40 +32,56 @@ export const timeToNow = (time) => {
   return str;
 };
 
-export const getDate = (date) => {
-  if (!date) {
-    return '';
+/**
+ * 日期格式化
+ * @param date       //日期,时间戳
+ * @param fmt        //格式规则 'yyyy-M-d'  'yyyy-MM-dd'  'yyyy-MM-dd hh:mm:ss' 'dd/MM/yyyy''
+ * @returns {String}
+ */
+export const getTime = (date, fmt = 'yyyy-MM-dd hh:mm:ss') => {
+  date = new Date(date);
+  let o = {
+    'M+': date.getMonth() + 1, //月份
+    'd+': date.getDate(), //日
+    'h+': date.getHours(), //小时
+    'm+': date.getMinutes(), //分
+    's+': date.getSeconds(), //秒
+    'q+': Math.floor((date.getMonth() + 3) / 3), //季度
+    'S': date.getMilliseconds() //毫秒
+  };
+
+  if (/(y+)/.test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
   }
-  let time = new Date(date);
-  let y = time.getFullYear();//年
-  let m = time.getMonth() + 1;//月
-  let d = time.getDate();//日
-  m = m < 10 ? '0' + m : m;
-  d = d < 10 ? '0' + d : d;
-  return y + '-' + m + '-' + d;
+
+  for (let k in o) {
+    if (new RegExp(`(${k})`).test(fmt)) {
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)));
+    }
+  }
+
+  return fmt;
 };
 
-export const getTime = (date) => {
-  let time = new Date(date);
-  let y = time.getFullYear();//年
-  let m = time.getMonth() + 1;//月
-  let d = time.getDate();//日
-  let h = time.getHours();//时
-  let mm = time.getMinutes();//分
-  let s = time.getSeconds();//秒
-  let str = y + '-' + m + '-' + d + ' ' + h + ':' + mm + ':' + s;
-  return str;
-};
-
+/**
+ * 移除空字符和引号
+ * @param String
+ * @returns {String}
+ */
 export const removeNbsp = (text) => {
   let str;
   str = text.replace(/&nbsp;/g, '').replace(/&quot;/g, '');
   return str;
 };
 
-export const dataAddBam = (text) => {
-  let str;
-  str = text.substring(0, 4) + '-' + text.substring(4, 6) + '-' + text.substring(6, 8);
-  return str;
+/**
+ * 获取任意天之后的日期
+ * @param dayCount    //类型Number,天数
+ * @returns {date}
+ */
+export const arbiDaysLaterDate = (dayCount) => {
+  let day = new Date();
+  day.setDate(day.getDate() + dayCount);//获取dayCount天后的日期
+  return getTime(day);
 };
 

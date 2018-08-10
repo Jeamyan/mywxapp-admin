@@ -9,13 +9,13 @@
     </div>
 
     <div class="fr dropdown-menu">
-      <el-dropdown>
+      <el-dropdown  @command="handleCommand">
         <span class="el-dropdown-link">
           管理员<i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>个人设置</el-dropdown-item>
-          <el-dropdown-item>退出登录</el-dropdown-item>
+          <el-dropdown-item command="setting">个人设置</el-dropdown-item>
+          <el-dropdown-item command="logout">退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
       <div class="fr user-avater"></div>
@@ -47,11 +47,17 @@ export default {
   },
   components: {},
   methods: {
-    loginout() {
-      localStorage.removeItem('ms_username');
-      this.$store.dispatch('logout').then(() => {
-        this.$router.push('/user/login');
-      });
+    handleCommand(command) {
+      if(command === 'setting'){
+        console.log('mylog', command);
+      }else if(command === 'logout'){
+        this.$router.push({
+          path: '/user/login'
+        });
+//      this.$store.dispatch('logout').then(() => {
+//        this.$router.push('/user/login');
+//      });
+      }
     }
   }
 };
@@ -108,7 +114,10 @@ export default {
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      background-color: #ffffff;
+      background: url('../../assets/img/default-header.png')no-repeat center center;
+      background-size: 30px 30px;
+      margin-top: 9px;
+      margin-left: 4px;
     }
   }
 

@@ -4,9 +4,9 @@
     <el-card class="login-main">
       <div class="logo"><img src="../../assets/img/logo.png" alt=""></div>
       <p class="login-text">管理后台</p>
-      <el-form ref="loginForm" :model="loginModel" :rules="loginRule" @submit.native.prevent="login">
+      <el-form ref="loginForm" :model="loginModel" :rules="loginRule" @submit.native.prevent="login" style="padding: 0 24px">
         <el-form-item prop="username">
-          <span class="label-text">用户名</span>
+          <span class="label-text">用户</span>
           <el-input class="login-input hvr-shutter-out-horizontal" type="text" v-model="loginModel.username" clearable/>
         </el-form-item>
         <el-form-item prop="password">
@@ -108,8 +108,7 @@ export default {
     .login-input {
       position: relative;
       display: block;
-      width: 80%;
-      margin: 0 auto;
+      width: 100%;
     }
     input:-webkit-autofill {
       background-color: #ffffff;
@@ -134,13 +133,8 @@ export default {
     .label-text {
       position: absolute;
       top: 0px;
-      left: 38px;
+      left: 0px;
       z-index: 1000;
-    }
-    .label-content {
-      display: block;
-      width: 80%;
-      margin: 0 auto;
     }
     .save-login-info {
       float: left;
@@ -148,10 +142,13 @@ export default {
     .forget-pwd {
       float: right;
       cursor: pointer;
+      color: #ff3c00;
+      line-height: 20px;
+      font-size: 12px;
     }
     #loginBtn {
-      width: 80%;
-      height: 53px;
+      width: 100%;
+      height: 52px;
       color: #fff;
       padding-left: 20px;
       padding-right: 20px;

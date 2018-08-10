@@ -21,11 +21,18 @@ import 'swiper/dist/css/swiper.css';
 // 兼容 requestAnimationFrame api
 import '@/common/reqAnimFrame';
 
+import * as filters from '@/common/filters';
+
 Vue.config.productionTip = false;
 
 Vue.use(VUI);
 Vue.use(ElementUI);
 Vue.use(VueAwesomeSwiper);
+
+// 自定义过滤器
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key]);
+});
 
 /* eslint-disable no-new */
 new Vue({
