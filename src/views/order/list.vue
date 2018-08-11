@@ -82,21 +82,32 @@ export default {
           ],
           orderPrice: 98.32,
           address: '上海市普陀区金沙江路 1518 弄',
-          orderStatus: 1,
+          orderStatus: 1
         }
       ]
     };
   },
-  filters :{
+  filters: {
     getStatus(status) {
       let str = '';
-      switch (status){
-        case 1:  str = '已付款';break;
-        case 2:  str = '待付款';break;
-        case 3:  str = '已取消';break;
-        case 4:  str = '已退款';break;
-        case 5:  str = '退款中';break;
-        default: str='已取消';
+      switch (status) {
+        case 1:
+          str = '已付款';
+          break;
+        case 2:
+          str = '待付款';
+          break;
+        case 3:
+          str = '已取消';
+          break;
+        case 4:
+          str = '已退款';
+          break;
+        case 5:
+          str = '退款中';
+          break;
+        default:
+          str = '已取消';
       }
       return str;
     }
@@ -110,7 +121,7 @@ export default {
 
   },
   methods: {
-    checkDetail(item){
+    checkDetail(item) {
       console.log('mylog', item);
     }
   }

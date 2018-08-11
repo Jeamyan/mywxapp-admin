@@ -25,15 +25,15 @@ export default {
       let self = this;
       let canvasPage = document.getElementById('canvas');
 
-      //设置画布分辨率
-      function setCanvasRes() {
+      // 设置画布分辨率
+      function setCanvasRes () {
         canvasPage.width = document.documentElement.clientWidth;
         canvasPage.height = document.documentElement.clientHeight;
       }
 
       setCanvasRes();
 
-      //监听屏幕大小改变 ， 重新设置画布大小
+      // 监听屏幕大小改变 ， 重新设置画布大小
       window.onresize = function () {
         window.requestAnimFrame(setCanvasRes);
       };
@@ -41,15 +41,15 @@ export default {
       let ctx = canvasPage.getContext('2d');
       let zhongX = 800;
       let zhongY = 385;
-      let colors = ["#ffffff","#E21779","#2d8cf0","#19be6b", "#ff9900","##ed3f14","#feea00","#a9df85"];
+      let colors = ['#ffffff', '#E21779', '#2d8cf0', '#19be6b', '#ff9900', '##ed3f14', '#feea00', '#a9df85'];
 
-      function randomNum(x, y) {
+      function randomNum (x, y) {
         return Math.floor(Math.random() * (y - x + 1) + x);
       }
 
-      function Ball() {
+      function Ball () {
         this.r = randomNum(1, 1.5);
-        this.color = colors[randomNum(0,colors.length-1)];
+        this.color = colors[randomNum(0, colors.length - 1)];
 
         this.x = randomNum(this.r, canvasPage.width - this.r);
         this.y = randomNum(this.r, canvasPage.height - this.r);
@@ -69,16 +69,16 @@ export default {
           this.x = canvasPage.width - this.r;
           this.speedX *= -1;
         }
-        //小球碰到上边界的处理 反弹
+        // 小球碰到上边界的处理 反弹
         if (this.y <= this.r) {
           this.y = this.r;
-          //反弹
+          // 反弹
           this.speedY *= -1;
         }
-        //小球碰到下边界的处理 反弹
+        // 小球碰到下边界的处理 反弹
         if (this.y >= canvasPage.height - this.r) {
           this.y = canvasPage.height - this.r;
-          //反弹
+          // 反弹
           this.speedY *= -1;
         }
       };
@@ -95,20 +95,20 @@ export default {
         balls.push(ball);
       }
 
-      function ballAndMouse(obj) {
+      function ballAndMouse (obj) {
         let disX = Math.abs(zhongX - obj.x);
         let disY = Math.abs(zhongY - obj.y);
         return Math.sqrt(disX * disX + disY * disY);
       }
 
-      function ballAndBall(obj1, obj2) {
+      function ballAndBall (obj1, obj2) {
         let disX = Math.abs(obj1.x - obj2.x);
         let disY = Math.abs(obj1.y - obj2.y);
         return Math.sqrt(disX * disX + disY * disY);
       }
 
-      //执行动画
-      function animation() {
+      // 执行动画
+      function animation () {
         ctx.clearRect(0, 0, canvasPage.width, canvasPage.height);
         for (let i = 0; i < balls.length; i++) {
           balls[i].move();
@@ -137,7 +137,7 @@ export default {
         }
         ctx.globalAlpha = 1.0;
 
-        //递归执行
+        // 递归执行
         self.timer = window.requestAnimFrame(animation);
       }
 

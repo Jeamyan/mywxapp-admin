@@ -57,7 +57,7 @@ export default {
           goodsImg: '323.jpg',
           goodsDesc: 'sa度快圣诞礼物',
           goodsPrice: 39.9,
-          createTime: 1324543344322,
+          createTime: 1324543344322
         }
       ]
     };
@@ -74,7 +74,7 @@ export default {
     handleDelete(id) {
       console.log('mylog', id);
     },
-    handleEdit(id){
+    handleEdit(id) {
       console.log('mylog', id);
     }
   }

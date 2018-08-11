@@ -15,7 +15,7 @@
           </el-menu-item>
         </router-link>
 
-        <el-submenu :index="'index' + index" v-else>
+        <el-submenu :index="'index' + index" v-else :key="`index${index}`">
 
           <template slot="title">
             <i class="iconfont" :class="[item.icon]"></i>
@@ -23,7 +23,7 @@
           </template>
 
           <template v-for="(subItem,subIndex) in item.children">
-            <router-link :to="{ path : subItem.path }" class="block">
+            <router-link :to="{ path : subItem.path }" class="block" :key="`sub${subIndex}`">
               <el-menu-item :index="`${subItem.path}`" style="padding-left: 62px !important;">
                 <span class="el-menu__text">{{ subItem.meta.title }}</span>
               </el-menu-item>
@@ -39,14 +39,14 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
       loading: false
     };
   },
-  beforeMount(){
+  beforeMount() {
   },
   computed: {
     ...mapGetters([
@@ -57,7 +57,6 @@ export default {
     }
   },
   mounted() {
-    console.log('mylog', this.sidebarList);
   },
   methods: {}
 };

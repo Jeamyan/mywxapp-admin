@@ -9,7 +9,7 @@
     </div>
 
     <div class="fr dropdown-menu">
-      <el-dropdown  @command="handleCommand">
+      <el-dropdown @command="handleCommand">
         <span class="el-dropdown-link">
           管理员<i class="el-icon-arrow-down el-icon--right"></i>
         </span>
@@ -43,20 +43,20 @@ export default {
         }
         return userName;
       }
-    },
+    }
   },
   components: {},
   methods: {
     handleCommand(command) {
-      if(command === 'setting'){
+      if (command === 'setting') {
         console.log('mylog', command);
-      }else if(command === 'logout'){
+      } else if (command === 'logout') {
         this.$router.push({
           path: '/user/login'
         });
-//      this.$store.dispatch('logout').then(() => {
-//        this.$router.push('/user/login');
-//      });
+      //  this.$store.dispatch('logout').then(() => {
+      //   this.$router.push('/user/login');
+      //  });
       }
     }
   }
@@ -105,21 +105,19 @@ export default {
     color: $color-primary;
   }
 
-  .dropdown-menu{
+  .dropdown-menu {
     margin-right: 30px;
-    .el-dropdown{
+    .el-dropdown {
       color: #ffffff;
     }
-    .user-avater{
+    .user-avater {
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      background: url('../../assets/img/default-header.png')no-repeat center center;
+      background: url('../../assets/img/default-header.png') no-repeat center center;
       background-size: 30px 30px;
       margin-top: 9px;
       margin-left: 4px;
     }
   }
-
-
 </style>

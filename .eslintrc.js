@@ -8,10 +8,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true,
-    parser: 'babel-eslint',
-    sourceType: 'module'
-
+    node: true
   },
   extends: [
     // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
@@ -39,7 +36,7 @@ module.exports = {
     /**---------------逻辑错误相关--------------------- */
     "no-cond-assign": "error",  //错误：条件语句中出现赋值=操作符
     "no-dupe-args": "error",  //错误：方法中出现重名参数
-    "no-console": "warn",  //警告：语句中出现console
+    // "no-console": "warn",  //警告：语句中出现console
     // "no-debugger": "warn",   //警告：语句中出现debugger
     "no-dupe-keys": "error",  //错误：对象字面量出现同名key
     "no-duplicate-case": "error",  //禁止重复 case 标签
@@ -92,7 +89,7 @@ module.exports = {
     // "linebreak-style": ["error", "unix"],  //行尾结束编码方式
     "quotes": ["error", "single"],  //强制使用单引号
     "semi": ["off", "always"],    //强制句末使用分号
-    "camelcase": ["error", {"properties": "always"}], //强制使用camelCase方式命名参数
+    "camelcase": ["off", {"properties": "off"}], //强制使用camelCase方式命名参数
     // "new-cap": "error",  //构造函数名称首字母大写
     "comma-dangle": "warn",  //禁用拖尾逗号
     "no-array-constructor": "warn",  //禁止使用Array构造函数

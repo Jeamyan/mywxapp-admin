@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex';
+import { mapActions } from 'vuex';
 import { JSEncrypt } from 'jsencrypt';
 import bgCanvas from './Canvas';
 
@@ -68,13 +68,13 @@ export default {
 
   },
   methods: {
-    submit(){
+    submit() {
       this.$router.push({
         path: '/report/general'
       })
     },
     forgetPassword() {
-      console.log('mylog', 2);
+
     }
   }
 };
