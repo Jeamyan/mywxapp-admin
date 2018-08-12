@@ -11,6 +11,7 @@ yarn-error.log*
 /test/unit/coverage/
 /test/e2e/reports/
 selenium-debug.log
+.idea/
 
 # Editor directories and files
 .idea
@@ -19,6 +20,7 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
+*.iml
 
 # Icon must end with two \r
 Icon

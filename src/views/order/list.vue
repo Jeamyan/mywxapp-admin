@@ -32,10 +32,6 @@
           width="180">
         </el-table-column>
         <el-table-column
-          prop="goodsList"
-          label="商品">
-        </el-table-column>
-        <el-table-column
           prop="orderPrice"
           label="订单总价">
         </el-table-column>
